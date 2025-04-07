@@ -1,31 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Load SVG content
-  const svgContent = `
-    <svg viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <linearGradient id="gradient1" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stop-color="#8C52FF" />
-          <stop offset="100%" stop-color="#00C2CB" />
-        </linearGradient>
-        <linearGradient id="gradient2" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stop-color="#FF5252" />
-          <stop offset="100%" stop-color="#8C52FF" />
-        </linearGradient>
-        <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-          <feGaussianBlur stdDeviation="10" result="blur" />
-          <feComposite in="SourceGraphic" in2="blur" operator="over" />
-        </filter>
-      </defs>
-      <g filter="url(#glow)">
-        <circle cx="400" cy="400" r="300" fill="none" stroke="url(#gradient1)" stroke-width="20" />
-        <circle cx="400" cy="400" r="200" fill="none" stroke="url(#gradient2)" stroke-width="15" />
-        <circle cx="400" cy="400" r="100" fill="#8C52FF" opacity="0.3" />
-        <path d="M400 250 L400 550 M250 400 L550 400" stroke="white" stroke-width="10" stroke-linecap="round" />
-      </g>
-    </svg>
-  `
-
-  document.getElementById("gemini-svg").innerHTML = svgContent
+  // Remove this SVG content block at the beginning of the file
 
   // DOM Elements
   const settingsBtn = document.getElementById("settings-btn")
@@ -122,12 +96,21 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   })
 
-  // Connect to LG Rig (Simulation)
+  // Update the connect button event handler to check all required fields
   document.querySelector(".connect-btn").addEventListener("click", () => {
+    const username = document.getElementById("lg-username")
+    const password = document.getElementById("lg-password")
     const ipInput = document.getElementById("lg-ip")
     const portInput = document.getElementById("lg-port")
+    const rigsInput = document.getElementById("lg-rigs")
 
-    if (ipInput.value.trim() !== "" && portInput.value.trim() !== "") {
+    if (
+      username.value.trim() !== "" &&
+      password.value.trim() !== "" &&
+      ipInput.value.trim() !== "" &&
+      portInput.value.trim() !== "" &&
+      rigsInput.value.trim() !== ""
+    ) {
       // Simulate connection
       lgStatus.classList.remove("disconnected")
       lgStatus.classList.add("connected")
@@ -138,7 +121,7 @@ document.addEventListener("DOMContentLoaded", () => {
       // Close modal
       settingsModal.classList.remove("show")
     } else {
-      showNotification("Please enter valid IP and Port", "error")
+      showNotification("Please fill in all required fields", "error")
     }
   })
 
