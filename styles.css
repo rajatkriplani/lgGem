@@ -191,7 +191,7 @@ body.dark-theme {
 #gemini-svg {
   width: 80%;
   height: 80%;
-  filter: drop-shadow(0 0 10px rgba(140, 82, 255, 0.5));
+  /*filter: drop-shadow(0 0 10px rgba(140, 82, 255, 0.5));*/
   transition: var(--transition);
   background: transparent;
   border-radius: 50%;
