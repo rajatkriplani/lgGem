@@ -192,5 +192,9 @@ document.addEventListener("DOMContentLoaded", () => {
       pulseRing.style.animation = "none"
     }
   })
+
+  // Add this code to ensure the SVG displays without a background
+  const geminiSvg = document.getElementById("gemini-svg")
+  geminiSvg.style.background = "transparent"
 })
 
