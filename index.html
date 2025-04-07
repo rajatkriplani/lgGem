@@ -34,9 +34,7 @@
       <div class="voice-button-wrapper">
         <div class="pulse-ring"></div>
         <button id="voice-btn" class="voice-button" aria-label="Activate Voice Control">
-          <svg id="gemini-svg" viewBox="0 0 800 800" xmlns="http://www.w3.org/2000/svg">
-            <!-- SVG content will be loaded via JavaScript -->
-          </svg>
+          <img src="assets/gemini-icon.svg" alt="Gemini Voice Control" id="gemini-svg">
         </button>
       </div>
       <p class="voice-prompt">Tap to speak</p>
@@ -57,10 +55,21 @@
               <i class="fas fa-qrcode"></i> Scan QR Code
             </button>
             <div class="manual-input">
-              <label for="lg-ip">Or enter IP manually:</label>
-              <input type="text" id="lg-ip" placeholder="192.168.1.100">
-              <label for="lg-port">Port:</label>
-              <input type="text" id="lg-port" placeholder="8080">
+              <label for="lg-username">Username: <span class="required">*</span></label>
+              <input type="text" id="lg-username" placeholder="Username" required>
+              
+              <label for="lg-password">Password: <span class="required">*</span></label>
+              <input type="password" id="lg-password" placeholder="Password" required>
+              
+              <label for="lg-ip">IP Address: <span class="required">*</span></label>
+              <input type="text" id="lg-ip" placeholder="192.168.1.100" required>
+              
+              <label for="lg-port">Port: <span class="required">*</span></label>
+              <input type="text" id="lg-port" placeholder="8080" required>
+              
+              <label for="lg-rigs">Number of Rigs: <span class="required">*</span></label>
+              <input type="number" id="lg-rigs" placeholder="3" min="1" required>
+              
               <button class="connect-btn">Connect</button>
             </div>
           </div>
@@ -128,3 +137,4 @@
   <script src="script.js"></script>
 </body>
 </html>
+
